@@ -27,7 +27,7 @@ BOJ_EunJeong
 + commit 메세지 : [문제 출처(플랫폼)] 문제번호 문제이름 / 난이도
 + 예시:
 ```
-"[BOJ] 1000번 A+B / Bronze5" -m "
+"[BOJ] 1000번 A+B / Bronze5"
 ```
 <br>
 
