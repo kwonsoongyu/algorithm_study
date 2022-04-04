@@ -8,6 +8,7 @@
     + [BOJ] - 백준
     + [PGS] - 프로그래머스
     + [SEA] - 삼성SW Expert Academy
+    + [CUP] - 코드업
     + [ETC] - 그 외..
     + 필요할 때 마다 더 추가
 <br>
