@@ -1,0 +1,18 @@
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
+#15650
+
+N,M = map(int,input().split())
+graph = []
+def dfs(v):
+    if len(graph) == M:
+        print(' '.join(map(str,graph)))
+        return
+
+    for i in range(v,N+1):
+        if i not in graph:
+            graph.append(i)
+            dfs(i)
+            graph.pop()
+dfs(1)
