@@ -1,0 +1,35 @@
+def solution(N):
+    answer = 0
+    dp = [0] * (N+1)
+    sum = 0
+    count = 0
+    for i in range(1,N+1):
+        sum += i
+        count += 1
+        if sum >= N:
+            break
+            
+    sum = 0      
+    for i in range(1, N + 1):
+        t = i
+        for j in range(1, count+1):
+
+            dp[i] += t
+            if dp[i] > N:
+                count -= 1
+            if dp[i] == N:
+                dp[i] = N
+                answer += 1
+                count -= 1
+            t += 1
+    print(dp)
+    print(answer)
+    
+    return answer
+
+
+    
+
+
+
+
