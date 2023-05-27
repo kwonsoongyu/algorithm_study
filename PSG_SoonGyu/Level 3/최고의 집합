@@ -1,0 +1,16 @@
+import itertools
+
+def solution(n, s):
+    answer = []
+    ans = []
+    total = s
+    for i in range(n, 0, -1):
+        ans.append(total // i)
+        total -= total//i
+    
+    if n > s:
+        answer.append(-1)
+    else:
+        for i in range(len(ans)):
+            answer.append(ans[i])
+    return answer
