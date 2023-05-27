@@ -1,0 +1,27 @@
+import heapq
+def solution(n, works):
+    answer = 0
+    
+    if sum(works) < n:
+        return answer
+    
+    heap = []
+    
+    for i in range(len(works)):
+        heapq.heappush(heap,-1*works[i])
+    
+    while True:
+        num = heapq.heappop(heap)
+        num = abs(num)-1
+        heapq.heappush(heap,-1*num)
+        n -= 1
+        
+        if n == 0:
+            break
+    
+    
+    
+    for i in heap:
+        answer += i**2
+        
+    return answer
