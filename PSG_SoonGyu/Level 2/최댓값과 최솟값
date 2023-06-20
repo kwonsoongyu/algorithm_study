@@ -1,0 +1,7 @@
+def solution(s):
+    
+    word = []
+    word = list(map(int,s.split(" ")))
+    word.sort()
+    
+    return str(word[0])+" "+str(word[-1])
