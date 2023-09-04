@@ -1,0 +1,13 @@
+def solution(arr):
+    answer = 0
+    a = arr[0]
+    
+    
+    for i in range(len(arr)-1):
+        b = arr[i+1]
+        for j in range(max(a,b),(a*b)+1):
+            if j%a == 0 and j%b == 0:
+                answer = j
+                a = answer
+                break
+    return answer
