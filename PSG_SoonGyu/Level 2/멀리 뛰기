@@ -1,0 +1,21 @@
+def solution(n):
+    answer = 1
+    num = n-1
+    r = 1
+    
+    while num >= r:
+        rist = 1
+        div = 1
+        for i in range(r):
+            rist = rist * (num-i)
+        for j in range(r):
+            div = div * (1+j)
+        if num == r:
+            answer += 1
+        else:
+            answer += rist // div
+
+        num -= 1
+        r += 1
+    answer = answer % 1234567
+    return answer
