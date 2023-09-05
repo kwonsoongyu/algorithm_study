@@ -1,0 +1,25 @@
+def solution(s):
+    answer = ''
+    check = False
+    for i in range(len(s)):
+        if i == 0:
+            if str.isalpha(s[0]) == True:
+                answer += s[0].upper() 
+            else:
+                answer += s[0].lower()
+        else:
+            if s[i] == " ":
+                answer += s[i]
+                check = True
+            else:
+                if check == True:
+                    if str.isalpha(s[i]) == True:
+                        answer += s[i].upper()
+                        check = False
+                    else:
+                        answer += s[i].upper()
+                        check = False
+                else:
+                    answer += s[i].lower()
+                        
+    return answer
