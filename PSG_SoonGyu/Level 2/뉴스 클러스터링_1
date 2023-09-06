@@ -1,0 +1,39 @@
+from collections import Counter
+def solution(str1, str2):
+    answer = 0
+    first = []
+    second = []
+    str1 = str1.lower()
+    str2 = str2.lower()
+    
+    #첫 문장 필터
+    for i in range(len(str1)-1):
+        word = ''
+        word = str1[i] + str1[i+1]
+        if word.isalpha() == True:
+            first.append(word)
+    
+    #두번째 문장 필터        
+    for i in range(len(str2)-1):
+        word = ''
+        word = str2[i] + str2[i+1]
+        if word.isalpha() == True:
+            second.append(word)
+    
+    if len(first) == 0 and len(second) == 0:
+        answer = 65536
+    else:
+        first = Counter(first)
+        second = Counter(second)
+
+        #교집합
+        U = first&second
+        U = sum(U.values())
+        
+        #합집합
+        U1 = first|second
+        U1 = sum(U1.values())
+        
+        answer = int(U/U1 * 65536)
+
+    return answer
