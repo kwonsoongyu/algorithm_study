@@ -1,0 +1,19 @@
+from collections import Counter
+
+def solution(clothes):
+    answer = 1
+    count = {}
+    
+    for cloth in clothes:
+        key = cloth[1]
+        value = cloth[0]
+        
+        if key in count:
+            count[key].append(value)
+        else:
+            count[key] = [value]
+            
+    for i in count.keys():
+        answer = answer * (len(count[i])+1)
+
+    return answer - 1
