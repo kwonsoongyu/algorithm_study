@@ -1,0 +1,20 @@
+import itertools
+
+def solution(k, dungeons):
+    answer = 0
+
+    max_num = 0
+    nPr = list(itertools.permutations(dungeons, len(dungeons)))
+
+    for i in range(len(nPr)):
+        check = k
+        num = 0
+        for min_dungeon,lost_dungeon in nPr[i]:
+            if check >= min_dungeon:
+                check = check - lost_dungeon
+                num += 1
+        if num > max_num:
+            max_num = num
+            
+    answer = max_num
+    return answer
