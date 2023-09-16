@@ -1,0 +1,17 @@
+from collections import deque
+
+def solution(prices):
+    answer = []
+    price = deque(prices)
+    
+    while price:
+        front = price.popleft()
+        time = 0
+        
+        for i in price:
+            time += 1
+            if front > i:
+                break
+        answer.append(time)
+        
+    return answer
