@@ -1,0 +1,30 @@
+from collections import deque
+
+def solution(maps):
+    answer = 0
+    N = len(maps[0])
+    M = len(maps)
+    dx = [-1,1,0,0]
+    dy = [0,0,-1,1]
+
+    visited = [[0] * N for i in range(M)]
+    q = deque()
+    q.append((0,0))
+    visited[0][0] = 1
+    
+    while q:
+        y,x = q.popleft()
+        for i in range(4):
+            ax = dx[i] + x
+            ay = dy[i] + y
+            
+            if 0 <= ax < N and 0 <= ay < M and maps[ay][ax] == 1:
+                if visited[ay][ax] == 0:
+                    visited[ay][ax] = 1
+                    q.append((ay,ax))
+                    maps[ay][ax] = maps[y][x]+1
+    print(maps)
+    if maps[M-1][N-1] == 1:
+        return -1
+    else:
+        return maps[M-1][N-1]
