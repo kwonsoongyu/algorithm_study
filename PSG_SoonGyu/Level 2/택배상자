@@ -1,0 +1,21 @@
+from collections import deque
+
+def solution(order):
+    answer = 0
+    T = len(order)
+    order = deque(order)
+    second_order = deque()
+    
+    for i in range(T):
+        if i+1 == order[0]:
+            answer += 1
+            order.popleft()
+            
+            while second_order and order and second_order[0] == order[0]:
+                answer += 1
+                second_order.popleft()
+                order.popleft()
+        else:
+            second_order.appendleft(i+1)
+                    
+    return answer
